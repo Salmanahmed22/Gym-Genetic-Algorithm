@@ -1,6 +1,5 @@
 package org.codeWithGA.core;
 
-import org.codeWithGA.core.Chromosome;
 import java.util.ArrayList;
 import java.util.List;
 

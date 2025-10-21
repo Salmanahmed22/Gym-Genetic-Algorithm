@@ -1,9 +1,7 @@
 package org.codeWithGA.core;
 
-import org.codeWithGA.core.Gene;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class Chromosome {
     private List<Gene> genes;
