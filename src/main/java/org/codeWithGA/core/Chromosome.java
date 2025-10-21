@@ -1,10 +1,13 @@
 package org.codeWithGA.core;
 
+import org.codeWithGA.fitness.FitnessEvaluator;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Chromosome {
     private List<Gene> genes;
+    private double fitness;
 
     //Deep copy
     public Chromosome(List<Gene> genes) {
@@ -29,6 +32,18 @@ public class Chromosome {
     }
     public Chromosome newWithGenes(List<Gene> newGenes) {
         return new Chromosome(newGenes);
+    }
+
+    public double getFitness() {
+        return fitness;
+    }
+
+    public void setFitness(double fitness) {
+        this.fitness = fitness;
+    }
+
+    public void calculateFitness() {
+        this.fitness = FitnessEvaluator.calculateFitness(this);
     }
 
     @Override

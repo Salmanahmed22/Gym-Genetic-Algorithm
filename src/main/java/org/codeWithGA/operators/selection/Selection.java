@@ -6,6 +6,5 @@ import java.util.AbstractMap;
 import java.util.List;
 
 public interface Selection {
-
     List<Chromosome> select(List<Chromosome> population);
 }

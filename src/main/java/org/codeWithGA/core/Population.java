@@ -10,7 +10,9 @@ public class Population {
     public Population(int size) {
         chromosomes = new ArrayList<>();
         for (int i = 0; i < size; i++) {
-            chromosomes.add(Chromosome.randomChromosome());
+            Chromosome randomChromosome = Chromosome.randomChromosome();
+            randomChromosome.calculateFitness();
+            chromosomes.add(randomChromosome);
         }
     }
 
