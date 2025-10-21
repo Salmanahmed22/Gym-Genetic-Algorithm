@@ -30,6 +30,12 @@ public class Chromosome {
         for (Gene g : genes) copy.add(g.copy());
         return copy;
     }
+    public void setGenes(List<Gene> newGenes) {
+        this.genes = new ArrayList<>();
+        for (Gene g : newGenes) {
+            this.genes.add(g.copy());
+        }
+    }
     public Chromosome newWithGenes(List<Gene> newGenes) {
         return new Chromosome(newGenes);
     }
