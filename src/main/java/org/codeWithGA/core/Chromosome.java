@@ -1,6 +1,7 @@
 package org.codeWithGA.core;
 
 import org.codeWithGA.fitness.FitnessEvaluator;
+import org.codeWithGA.fitness.InfeasibilityHandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,8 +49,15 @@ public class Chromosome {
         this.fitness = fitness;
     }
 
-    public void calculateFitness() {
-        this.fitness = FitnessEvaluator.calculateFitness(this);
+//    public void calculateFitness() {
+//        this.fitness = FitnessEvaluator.calculateFitness(this);
+//    }
+    public void calculateFitness(FitnessEvaluator fitnessFunction, InfeasibilityHandler handler) {
+        double baseFitness = fitnessFunction.calculate(this);
+
+        double penalty = handler.calculatePenalty(this);
+
+        this.fitness = baseFitness - penalty;
     }
 
     @Override
