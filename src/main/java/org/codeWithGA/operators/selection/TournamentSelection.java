@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Random;
 
 public class TournamentSelection implements Selection {
-    private final int size;
+    private int size; // tournament size
     private final int numberOfNeededParents;
     private Random random = new Random();
 
@@ -19,6 +19,11 @@ public class TournamentSelection implements Selection {
 
     @Override
     public List<Chromosome> select(List<Chromosome> population) {
+
+        if (population.size() < size) {
+            size = population.size();
+        }
+
         List<Chromosome> selectedParents = new ArrayList<>();
         for (int i = 0; i < numberOfNeededParents; i++) {
             List<Chromosome> tournament = new ArrayList<>();
