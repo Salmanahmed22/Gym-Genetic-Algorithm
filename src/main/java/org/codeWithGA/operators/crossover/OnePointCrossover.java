@@ -16,8 +16,9 @@ public class OnePointCrossover implements Crossover {
     public List<Chromosome> apply(Chromosome parent1, Chromosome parent2) {
         if (random.nextDouble() > crossoverRate)
             return List.of(parent1, parent2);
-
-        int point = random.nextInt(7);
+        
+        int length = parent1.getGenes().size();
+        int point = random.nextInt(0, length-1);
         List<Gene> genes1 = parent1.getGenes();
         List<Gene> genes2 = parent2.getGenes();
 
@@ -33,9 +34,6 @@ public class OnePointCrossover implements Crossover {
         return List.of(child1, child2);
     }
 
-    @Override
-    public double getCrossoverRate() {
-        return crossoverRate;
-    }
+
 }
 
